@@ -44,7 +44,7 @@ void SimpleKfNode::update()
   // std::vector<BallPercept> percepts = detectBalls(img, stamp);
 
   // Kalman prediction step
-  if(message_received_)
+  if(message_received_) // if message was received once!
   {
     predictionStep(dt_);
 

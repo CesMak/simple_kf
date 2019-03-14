@@ -34,13 +34,15 @@ void VisNode::kf_input_Cb(alfons_msgs::KfState msg)
     sphere_marker.header = msg.header;
     sphere_marker.pose.position = msg.position_kf;
     sphere_marker.pose.orientation.w = 1.0;
-    sphere_marker.scale.x = 0.1;
-    sphere_marker.scale.y = 0.1;
-    sphere_marker.scale.z = 0.1;
+    sphere_marker.scale.x = 0.01;
+    sphere_marker.scale.y = 0.01;
+    sphere_marker.scale.z = 0.01;
     
-    sphere_marker.color.r = 0;
+    // TODO green if marker is found
+    // RED if no measurement comes in!
+    sphere_marker.color.r = 1;
     sphere_marker.color.g = 1;
-    sphere_marker.color.b = 0;
+    sphere_marker.color.b = 1;
     sphere_marker.color.a = 1;
 
     // draw covariance XY as disc
