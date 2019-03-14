@@ -1,3 +1,4 @@
+#include <simple_kf/helper.h>
 #include <simple_kf/kalman_filter.h>
 
 
@@ -300,22 +301,22 @@ void KalmanFilter::initKalman(int state_size, int measurement_size)
 void KalmanFilter::setCovariance(double x, double y, double z, double angle_x, double angle_y, double angle_z)
 {
   // TODO
-  // covariance_[0] = x;
-  // covariance_[1] = y;
-  // covariance_[2] = z;
-  // covariance_[3] = angle_x; // roll pitch yaw cov values
-  // covariance_[4] = angle_y;
-  // covariance_[5] = angle_z;
+  covariance_[0] = x;
+  covariance_[1] = y;
+  covariance_[2] = z;
+  covariance_[3] = angle_x; // roll pitch yaw cov values
+  covariance_[4] = angle_y;
+  covariance_[5] = angle_z;
 }
 
 void KalmanFilter::getCovariance(double& x, double& y, double& z, double& angle_x, double& angle_y, double& angle_z) const
 {
-  // x = covariance_[0];
-  // y = covariance_[1];
-  // z = covariance_[2];
-  // angle_x = covariance_[3];
-  // angle_y = covariance_[4];
-  // angle_z = covariance_[5];
+  x = covariance_[0];
+  y = covariance_[1];
+  z = covariance_[2];
+  angle_x = covariance_[3];
+  angle_y = covariance_[4];
+  angle_z = covariance_[5];
 }
 
 } // end of namespace

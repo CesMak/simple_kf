@@ -1,10 +1,6 @@
 #ifndef KALMAN_FILTER_H__
 #define KALMAN_FILTER_H__
 
-#include <ros/ros.h>
-
-#include <opencv2/video/video.hpp>
-
 namespace simple_kf
 {
 class KalmanFilter
@@ -57,7 +53,10 @@ public:
   cv::Point3f getPredictedPosition() const { return cv::Point3f(state_.at<float>(0), state_.at<float>(1), state_.at<float>(2)); }
   cv::Point3f getPredictedVelocity() const { return cv::Point3f(state_.at<float>(3), state_.at<float>(4), state_.at<float>(5)); }
   cv::Point3f getPredictedAcceleration() const { return cv::Point3f(state_.at<float>(6), state_.at<float>(7), state_.at<float>(8)); }
-  
+  cv::Point3f getKfPosition() const { return position_; }
+  cv::Point3f getKfVelocity() const { return velocity_; }
+  cv::Point3f getKfAcceleration() const { return acceleration_; }
+
   int getStateSize() const { return state_size_;}
 
   cv::Mat getErrorCovPre() const  { return kf_.errorCovPre; }
@@ -82,7 +81,7 @@ public:
    */
   int state_size_;
   int measurement_size_;
-  float covariance_[];
+  float covariance_[6];
 
 protected:
   /**

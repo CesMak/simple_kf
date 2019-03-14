@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   visualization_msgs
   geometry_msgs
   visualization_msgs
+  alfons_msgs
 )
 
 find_package(OpenCV REQUIRED) 
@@ -116,7 +117,7 @@ find_package(OpenCV REQUIRED)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS roscpp tf std_msgs geometry_msgs visualization_msgs
+  CATKIN_DEPENDS roscpp tf std_msgs geometry_msgs visualization_msgs alfons_msgs
 #  DEPENDS system_lib
 )
 # |^ rviz_visual_tools deleted in catkin depends.
@@ -135,6 +136,7 @@ set(HEADERSx
   include/${PROJECT_NAME}/main_node.h
   include/${PROJECT_NAME}/helper.h
   include/${PROJECT_NAME}/kalman_filter.h
+  include/${PROJECT_NAME}/vis_node.h
 )
 
 set(SOURCES
@@ -147,6 +149,7 @@ add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 ## Declare a cpp executable
 add_executable(simple_kf_node src/main_node.cpp)
+add_executable(simple_kf_vis_node src/vis_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -155,7 +158,7 @@ add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenCV_LIBS})
 target_link_libraries(simple_kf_node ${PROJECT_NAME}  ) 
-
+target_link_libraries(simple_kf_vis_node ${PROJECT_NAME}  ) 
 #############
 ## Install ##
 #############

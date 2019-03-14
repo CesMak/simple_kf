@@ -6,7 +6,12 @@
 
 // all in includes here:
 #include <opencv2/core/core.hpp>
+#include <opencv2/video/video.hpp>
 #include <ros/ros.h>
+
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
+#include <alfons_msgs/KfState.h>
+
 
 
 // macro to convert a string to a double

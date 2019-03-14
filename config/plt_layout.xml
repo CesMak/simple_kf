@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <plotmatrix rows="3" columns="1" tab_name="plot">
+   <plot row="0" col="0">
+    <range right="32.929101" top="0.519432" bottom="0.063845" left="0.000000"/>
+    <limitY/>
+    <curve G="0" B="255" name="/cam_pose_in_world/pose/pose/position/x" custom_transform="" R="0"/>
+    <curve G="0" B="255" name="/cam_pose_in_world_kf/position_kf/x" custom_transform="" R="255"/>
+    <transform value=""/>
+   </plot>
+   <plot row="1" col="0">
+    <range right="32.929101" top="0.040526" bottom="-0.082201" left="0.000000"/>
+    <limitY/>
+    <curve G="128" B="0" name="/cam_pose_in_world/pose/pose/position/y" custom_transform="" R="0"/>
+    <curve G="0" B="128" name="/cam_pose_in_world_kf/position_kf/y" custom_transform="" R="0"/>
+    <transform value=""/>
+   </plot>
+   <plot row="2" col="0">
+    <range right="32.929101" top="0.388853" bottom="0.291203" left="0.000000"/>
+    <limitY/>
+    <curve G="0" B="0" name="/cam_pose_in_world/pose/pose/position/z" custom_transform="" R="255"/>
+    <curve G="128" B="128" name="/cam_pose_in_world_kf/position_kf/z" custom_transform="" R="0"/>
+    <transform value=""/>
+   </plot>
+  </plotmatrix>
+  <currentPlotMatrix index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <Plugins>
+  <DataLoad_CSV>
+   <default time_axis=""/>
+  </DataLoad_CSV>
+  <DataLoad_ROS_bags>
+   <selected_topics list=""/>
+  </DataLoad_ROS_bags>
+  <DataLoad_ULog>
+   <no_params/>
+  </DataLoad_ULog>
+  <ROS_Topic_Streamer>
+   <selected_topics list="/cam_pose_in_world;/cam_pose_in_world_kf"/>
+  </ROS_Topic_Streamer>
+  <RosoutPublisherROS/>
+  <TopicPublisherROS/>
+ </Plugins>
+ <previouslyLoadedStreamer name="ROS_Topic_Streamer"/>
+ <customMathEquations/>
+ <snippets/>
+</root>
+

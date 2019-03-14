@@ -1,10 +1,6 @@
 #ifndef SIMPLE_KF_NODE_H__
 #define SIMPLE_KF_NODE_H__
 
-// messages
-#include <geometry_msgs/PoseWithCovarianceStamped.h>
-
-
 namespace simple_kf
 {
 class SimpleKfNode
@@ -17,19 +13,24 @@ public:
 
 protected:
   // ROS API callbacks
-  void inputPoseCb(const geometry_msgs::PoseWithCovarianceStampedConstPtr& msg);
+  void inputPoseCb(geometry_msgs::PoseWithCovarianceStamped msg);
 
   void predictionStep(double dt);
+  void correctionStep();
+  void publishResult();
 
   // class members
-  geometry_msgs::PoseWithCovarianceStampedConstPtr input_pose_;
+  geometry_msgs::PoseWithCovarianceStamped input_pose_;
   double dt_;
   int kf_states_;
   KalmanFilter* kf_;
+  bool message_received_;
 
   // subscriber
+  ros::Subscriber sub_pose1_;
 
   // publisher
+  ros::Publisher pose_kf1_pub;
 
   // action server
 
