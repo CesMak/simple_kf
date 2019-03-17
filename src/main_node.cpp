@@ -1,3 +1,10 @@
+/**************************************************************************//**
+   @author  Markus Lamprecht
+   @date    March 2019
+   @link    www.simact.de/about_me
+   @Copyright (c) 2019 Markus Lamprecht. BSD
+ *****************************************************************************/
+
 #include <simple_kf/helper.h>
 #include <simple_kf/kalman_filter.h>
 #include <simple_kf/main_node.h>
@@ -46,11 +53,18 @@ void SimpleKfNode::update()
   // Kalman prediction step
   if(message_received_) // if message was received once!
   {
-    predictionStep(dt_);
+    // dt scheint nicht das hauptproblem zu sein....
+    double dt = (input_pose_.header.stamp - last_processed_pose_.header.stamp).toSec();
+    // if(dt>0.0)
+    // {
+      predictionStep(dt_);
+      correctionStep();
+      publishResult();
+    //}
 
-    correctionStep();
-    publishResult();
   }
+
+  last_processed_pose_ = input_pose_;
 }
 
 
@@ -100,6 +114,7 @@ void SimpleKfNode::predictionStep(double dt)
 
 void SimpleKfNode::correctionStep()
 {
+  // weicht stark ab von vorlage!
     cv::Point3f latest_detected_position;
     latest_detected_position.x = input_pose_.pose.pose.position.x;
     latest_detected_position.y = input_pose_.pose.pose.position.y;

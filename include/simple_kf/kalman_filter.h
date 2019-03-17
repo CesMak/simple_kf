@@ -1,3 +1,9 @@
+/**************************************************************************//**
+   @author  Markus Lamprecht
+   @date    March 2019
+   @link    www.simact.de/about_me
+   @Copyright (c) 2019 Markus Lamprecht. BSD
+ *****************************************************************************/
 #ifndef KALMAN_FILTER_H__
 #define KALMAN_FILTER_H__
 

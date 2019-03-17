@@ -1,3 +1,9 @@
+/**************************************************************************//**
+   @author  Markus Lamprecht
+   @date    March 2019
+   @link    www.simact.de/about_me
+   @Copyright (c) 2019 Markus Lamprecht. BSD
+ *****************************************************************************/
 #ifndef SIMPLE_KF_NODE_H__
 #define SIMPLE_KF_NODE_H__
 
@@ -21,6 +27,7 @@ protected:
 
   // class members
   geometry_msgs::PoseWithCovarianceStamped input_pose_;
+  geometry_msgs::PoseWithCovarianceStamped last_processed_pose_;
   double dt_;
   int kf_states_;
   KalmanFilter* kf_;

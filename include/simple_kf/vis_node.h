@@ -1,3 +1,9 @@
+/**************************************************************************//**
+   @author  Markus Lamprecht
+   @date    March 2019
+   @link    www.simact.de/about_me
+   @Copyright (c) 2019 Markus Lamprecht. BSD
+ *****************************************************************************/
 #ifndef VIS_NODE_H__
 #define VIS_NODE_H__
 
