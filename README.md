@@ -68,6 +68,7 @@ If you want to use this package please contact: [me](https://simact.de/about_me)
 - plotting the kf see also here: http://wiki.ros.org/rviz_plugin_covariance
 - extend to also use a kalman filter for the orientation
 - Compare code with [reference](https://github.com/Myzhar/simple-opencv-kalman-tracker/blob/master/source/opencv-kalman.cpp) to check why it does not estimate in the future....
+- See  [here](http://wiki.ros.org/robot_pose_ekf)
 
 [ROS]: http://www.ros.org
 [rviz]: http://wiki.ros.org/rviz
